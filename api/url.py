@@ -1,11 +1,20 @@
 
 from django.urls import path
-from api.views import Class_PeriodListViews, ClassroomListViews, CourseListViews, StudentListViews, TeacherListViews,StudentDetailView.as_view()
+from api.views import  StudentListViews
+from api.views import TeacherListViews
+from api.views import CourseListViews
+from api.views import StudentDetailsView
+from api.views import courseDetailView
+from api.views import  teacherDetailView
+from .views import classesDetailView  
+from .views import ClassesListView 
+
 urlpatterns = [
-    path("Students/",StudentListViews.as_view(),name = "student_list_view"),
-    path("Teachers/",TeacherListViews.as_view(),name = "teacher_list_view"),
+    path("Student/",StudentListViews.as_view(),name = "student_list_view"),
+    path("Teacher/",TeacherListViews.as_view(),name = "teacher_list_view"),
     path("Courses/",CourseListViews.as_view(),name = "course_list_view"),
-    path("Classroom/",ClassroomListViews.as_view(),name = "classroom_list_view"),
-    path("Class_Period/",Class_PeriodListViews.as_view(),name = "class_period_list_view"),
-    path("students/<int:id>/",StudentDetail.as_view(),name="student_detail_view"),
+     path("Students/",StudentDetailsView.as_view(),name = "student_list_view"),
+     path("classes/<int:id>/",classesDetailView.as_view(),name="Course_detail_view"),
+     path("classes/",ClassesListView.as_view(),name="classes_list_view"), 
+    
 ]
